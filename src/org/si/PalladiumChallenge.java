@@ -9,8 +9,12 @@ package org.si;
  *
  *  Problem solution:
  *
- *      To find the solution we must imagine every possible distribution of the left and right area within the given
- *      array  H= | 5, 3, 5, 2, 1 | these would be:
+ *      Looking at an examples for the buildings which need to be covered, you can easily see that if we should use at
+ *      most two coverages for the buildings, both of them MUST start at either end of the array. We use this insight by
+ *      talking in the following of the "left" and "right" cover of the array.
+ *
+ *      Now to find the solution we must imagine every possible distribution of the left and right cover within the array
+ *      Given the array  H= | 5, 3, 5, 2, 1 | these would be:
  *          1. left area = 6 (all) buildings
  *          2. left area = 5, right area = 1
  *          3. left area = 4, right area = 2
