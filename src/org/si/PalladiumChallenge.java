@@ -9,11 +9,12 @@ package org.si;
  *
  *  Problem solution:
  *
- *      Looking at an examples for the buildings which need to be covered, you can easily see that if we should use at
+ *      Looking at the examples for the buildings which need to be covered, you can easily see that if we should use at
  *      most two coverages for the buildings, both of them MUST start at either end of the array. We use this insight by
- *      talking in the following of the "left" and "right" cover of the array.
+ *      talking in the following of the "left" and "right" cover of the array. Note: the left and right cover may very
+ *      well cover the entire array, in which case the left cover is equal to the right cover.
  *
- *      Now to find the solution we must imagine every possible distribution of the left and right cover within the array
+ *      Now to find the solution we must imagine every possible distribution of the left and right cover within the array.
  *      Given the array  H= | 5, 3, 5, 2, 1 | these would be:
  *          1. left area = 6 (all) buildings
  *          2. left area = 5, right area = 1
@@ -21,7 +22,7 @@ package org.si;
  *          4. left area = 3, right area = 3
  *          ....
  *
- *      To be able to calculate all of these we must first know which is the highest point within the mentioned areas.
+ *      To be able to calculate all of these we must first know which is the highest point within the mentioned covers.
  *      This we achieve by iterating from both the left and right end of the array and setting:
  *          leftMax  [current size of left area]  = max( leftMax[previous size] , H[current size of left area] )
  *          rightMax [current size of right area] = max( rightMax[previous size] , H[current size of right area] )
@@ -30,9 +31,12 @@ package org.si;
  *      we have:       leftMax ->| 5, 5, 5, 5, 5 |
  *                               | 5, 5, 5, 2, 1 | <- rightMax
  *
- *      Assuming now that our left coverage is covering 1 building and our right building is covering 5
+ *      Assuming now that our left coverage is covering 1 building and our right building is covering 5 buildings
  *      we just need to look into leftMax[0] and rightMax[1]. If we do this for all valid combinations of coverages we
- *      find the minimal possible coverage with a complexcity of N*2 = O(n)
+ *      find the minimal possible coverage.
+ *
+ *      The complexcity of this solution is N*2 = O(N), because we first iterate ONCE over the whole array to determine
+ *      the highest points within the different covers and ONCE over these arrays to find the optimal area.
  */
 public class PalladiumChallenge {
 
