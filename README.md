@@ -1,4 +1,4 @@
-# Codility Excersices
+# Codility Solutions
 > This repository contains my solutions to codility excercises and challenges.
 ## Motivation
 While solutions to codility excercises are abundant in the web, 
